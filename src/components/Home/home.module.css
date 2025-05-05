@@ -1,0 +1,35 @@
+.containerHome {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 50px;
+    background-image: url("../../assets/home.jpg");
+    height: 50vh;
+    color: white;
+}
+
+.containerHome h2 {
+    font-weight: bold;
+    font-size: 3em;
+    text-transform: uppercase;
+    color: pink;
+}
+
+.containerHome button {
+    background-color: pink;
+    padding: 10px 20px;
+    font-size: 1.5em;
+    transition: transform .3s ease-in;
+
+}
+
+.containerHome button:hover {
+    transform: scale(1.15);
+}
+
+a {
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+}

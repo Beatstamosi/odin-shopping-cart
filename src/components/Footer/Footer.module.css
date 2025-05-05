@@ -1,0 +1,21 @@
+.footerTop {
+    display: flex;
+    justify-content: space-around;
+    background-color: var(--lightPurple);
+}
+
+
+.footerBottom {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.footerLinks {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
