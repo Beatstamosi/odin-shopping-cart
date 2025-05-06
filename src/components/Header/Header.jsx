@@ -1,5 +1,5 @@
 import { Form } from "react-router-dom";
-import styles from "./header.module.css";
+import styles from "./Header.module.css";
 import { ShoppingCart, Search } from "lucide-react";
 
 function Header() {
