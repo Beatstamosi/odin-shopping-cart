@@ -1,13 +1,11 @@
-import { Form } from "react-router-dom";
+import { Form, Link } from "react-router-dom";
 import styles from "./Header.module.css";
 import { ShoppingCart, Search } from "lucide-react";
 
 function Header() {
   return (
     <div className={styles.header}>
-      <h2>
-        FAKE <span>STORE</span>
-      </h2>
+      <Link to="/"><h2>FAKE <span>STORE</span></h2></Link>
       <div className={styles.searchbar}>
         <input
           id="q"
