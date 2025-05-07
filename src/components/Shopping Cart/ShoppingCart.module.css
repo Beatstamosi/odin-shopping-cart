@@ -1,3 +1,110 @@
 .containerCart {
-    
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    padding: 50px;
+}
+
+.gridRight {
+    justify-items: center;
+    padding-top: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.gridRight button {
+    margin-top: 50px;
+}
+
+.containerProducts {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 20px;
+    border-bottom: 1px solid var(--lightPurple);
+    gap: 50px;
+}
+
+.containerProduct {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+}
+
+.containerProduct img {
+    width: 150px;
+}
+
+.productPricing {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-left: auto;
+}
+
+.productPricing input {
+    text-align: center;
+    border: none;
+    font-size: 1em;
+    width: 50px;
+}
+
+.quantityHandler {
+    display: flex;
+    border: 1px solid black;
+    font-size: 1em;
+    width: fit-content;
+}
+
+.quantityHandler button {
+    background-color: var(--lightPurple);
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.quantityHandler button:hover {
+    transform: scale(1.4);
+}
+
+.deleteBtn {
+    border: none;
+    background-color: rgb(239, 237, 237);
+    cursor: pointer;
+    padding: 5px 10px;
+}
+
+.deleteBtn:hover {
+    transform: scale(1.1);
+    background-color: var(--lightPurple);
+}
+
+.price {
+    font-weight: bold;
+}
+
+.total {
+    font-weight: bold;
+}
+
+.totalAmount {
+    font-weight: bold;
+    font-size: 2em;
+}
+
+.checkoutBtn {
+    border: none;
+    background-color: var(--lightPurple);
+    cursor: pointer;
+    padding: 5px 10px;
+    font-weight: bold;
+    font-size: 1.5em;
+    transition: transform 0.2s ease-out;
+}
+
+.checkoutBtn:hover {
+    transform: scale(1.2);
 }
