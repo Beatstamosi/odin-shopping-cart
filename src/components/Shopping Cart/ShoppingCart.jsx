@@ -82,7 +82,7 @@ function ShoppingCart() {
             </div>
             <div className={styles.gridRight}>
               <p className={styles.total}>Total</p>
-              <span className={styles.totalAmount}>{total}€</span>
+              <span className={styles.totalAmount}>{total}</span>
               <button className={styles.checkoutBtn}>Checkout</button>
             </div>
           </>
