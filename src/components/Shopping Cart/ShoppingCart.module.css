@@ -108,3 +108,8 @@
 .checkoutBtn:hover {
     transform: scale(1.2);
 }
+
+.backToProducts {
+    padding-top: 20px;
+    padding-left: 20px;
+}
