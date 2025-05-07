@@ -5,12 +5,33 @@ import { Link } from "react-router-dom";
 function ShoppingCart() {
   const { shoppingCart, setShoppingCart } = useCart();
 
-  const total = shoppingCart.reduce(
+  const formatPrice = (amount) => {
+    return (Math.round((amount + Number.EPSILON) * 100) / 100).toFixed(2) + '€';
+  }
+
+  const total = formatPrice(shoppingCart.reduce(
     (sum, current) => sum + current.product.price * current.quantity,
     0
-  );
+  ));
 
-  // New logic for increase, decrease --> directly change amount in shopping Cart
+  const increase = (product) => {
+    const updatedCart = [...shoppingCart];
+    const index = updatedCart.findIndex(
+      (item) => item.product.id == product.id
+    );
+    updatedCart[index].quantity = updatedCart[index].quantity + 1;
+    setShoppingCart(updatedCart);
+  };
+
+  const decrease = (product) => {
+    const updatedCart = [...shoppingCart];
+    const index = updatedCart.findIndex(
+      (item) => item.product.id == product.id
+    );
+    updatedCart[index].quantity =
+      updatedCart[index].quantity - 1 > 1 ? updatedCart[index].quantity - 1 : 1;
+    setShoppingCart(updatedCart);
+  };
 
   const deleteItem = (product) => {
     const updatedCart = [...shoppingCart];
@@ -48,12 +69,12 @@ function ShoppingCart() {
                   </div>
                   <div className={styles.productPricing}>
                     <p className={styles.price}>
-                      {(item.product.price * item.quantity).toFixed(2)}€
+                      {formatPrice(item.product.price * item.quantity)}
                     </p>
                     <div className={styles.quantityHandler}>
-                      <button>-</button>
+                      <button onClick={() => decrease(item.product)}>-</button>
                       <input type="text" value={item.quantity} readOnly />
-                      <button>+</button>
+                      <button onClick={() => increase(item.product)}>+</button>
                     </div>
                   </div>
                 </div>
