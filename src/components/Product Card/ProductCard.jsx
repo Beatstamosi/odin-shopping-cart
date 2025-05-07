@@ -1,13 +1,11 @@
-import { useState } from "react";
 import useQuantity from "../useQuantity";
 import styles from "./ProductCard.module.css";
 import { Link } from "react-router-dom";
-import { useCart } from "../CartContext";
 import useAddToCart from "../useAddToCart";
 
 function ProductCard({ product }) {
   const { quantity, increase, decrease } = useQuantity();
-  
+
   const addToCart = useAddToCart();
 
   return (

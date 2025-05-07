@@ -25,7 +25,7 @@ function Header() {
         {shoppingCart.length > 0 && 
         <div className={styles.amount}>{shoppingCart.length}</div>
         }
-        <ShoppingCart size={40} />
+        <Link to="/cart"><ShoppingCart size={40} /></Link>
       </div>
     </div>
   );

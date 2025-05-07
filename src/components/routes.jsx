@@ -3,6 +3,7 @@ import Home from "./Home/Home.jsx";
 import Products from "./Products/products.jsx";
 import ErrorPage from "./ErrorPage/ErrorPage.jsx";
 import ProductOverview from "./Product Overview/ProductOverview.jsx";
+import ShoppingCart from "./Shopping Cart/ShoppingCart.jsx";
 
 const productLoader = async () => {
     const response = await fetch("https://fakestoreapi.com/products")
@@ -33,6 +34,10 @@ const routes = [
         path: "/products/:id",
         element: <ProductOverview />,
       },
+      {
+        path: "/cart",
+        element: <ShoppingCart />,
+      }
     ],
   },
 ];
