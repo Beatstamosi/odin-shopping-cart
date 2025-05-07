@@ -1,8 +1,11 @@
 import { Form, Link } from "react-router-dom";
 import styles from "./Header.module.css";
 import { ShoppingCart, Search } from "lucide-react";
+import { useCart } from "../CartContext";
 
 function Header() {
+  const { shoppingCart, setShoppingCart } = useCart();
+
   return (
     <div className={styles.header}>
       <Link to="/"><h2>FAKE <span>STORE</span></h2></Link>
@@ -19,7 +22,9 @@ function Header() {
         </button>
       </div>
       <div className={styles.containerShoppingCart}>
-        <div className={styles.amount}>10</div>
+        {shoppingCart.length > 0 && 
+        <div className={styles.amount}>{shoppingCart.length}</div>
+        }
         <ShoppingCart size={40} />
       </div>
     </div>

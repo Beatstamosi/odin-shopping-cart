@@ -4,11 +4,16 @@ import { Outlet, useLoaderData } from "react-router-dom";
 import styles from "./App.module.css";
 import { ProductsContext } from "./components/productsContext.js";
 import ScrollTop from "./components/ScrollToTop.jsx";
+import { CartContext } from "./components/CartContext.js";
+import { useState } from "react";
 
 function App() {
   const products = useLoaderData();
 
+  const [shoppingCart, setShoppingCart] = useState([]);
+
   return (
+    <CartContext.Provider value={{ shoppingCart, setShoppingCart }}>
     < ProductsContext.Provider value={products}>
       <ScrollTop />
       <div className={styles.page}>
@@ -19,6 +24,7 @@ function App() {
         <Footer />
       </div>
     </ProductsContext.Provider>
+    </CartContext.Provider>
   );
 }
 

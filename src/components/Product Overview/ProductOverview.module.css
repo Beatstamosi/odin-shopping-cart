@@ -57,7 +57,7 @@
     padding: 5px 10px;
     transition: transform 0.2s ease-in;
 }
-
+ 
 .addToCart:hover {
     transform: scale(1.1);
 }

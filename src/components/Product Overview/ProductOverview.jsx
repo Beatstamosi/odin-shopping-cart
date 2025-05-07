@@ -1,7 +1,8 @@
-import { useLoaderData, useParams, Link } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import styles from "./ProductOverview.module.css";
 import { useProducts } from "../productsContext";
 import useQuantity from "../useQuantity";
+import useAddToCart from "../useAddToCart";
 
 function ProductOverview() {
   const params = useParams();
@@ -10,7 +11,7 @@ function ProductOverview() {
 
   const { quantity, increase, decrease } = useQuantity();
 
-  console.log(product);
+  const addToCart = useAddToCart();
 
   return (
     <div>
@@ -32,7 +33,7 @@ function ProductOverview() {
             <input type="text" value={quantity} readOnly />
             <button onClick={() => increase()}>+</button>
           </div>
-          <button className={styles.addToCart}>Add to Cart</button>
+          <button className={styles.addToCart} onClick={() => addToCart(product, quantity)}>Add to Cart</button>
         </div>
       </div>
     </div>

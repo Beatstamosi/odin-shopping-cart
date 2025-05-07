@@ -59,7 +59,7 @@
     transform: scale(1.4);
 }
 
-.addToCart {
+.addToCart, .viewMore {
     margin-top: 20px;
     margin-bottom: 20px;
     font-size: 1em;
@@ -70,6 +70,17 @@
     transition: transform 0.2s ease-in;
 }
 
-.addToCart:hover {
+.viewMore {
+    background-color: white;
+}
+
+.addToCart:hover, .viewMore:hover {
     transform: scale(1.1);
+}
+
+.containerButtons {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
 }
