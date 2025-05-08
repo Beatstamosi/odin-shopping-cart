@@ -13,6 +13,8 @@
     border-radius: 10px;
     margin-left: 50px;
     height: fit-content;
+    position: sticky;
+    top: 100px;
 }
 
 .gridRight button {
