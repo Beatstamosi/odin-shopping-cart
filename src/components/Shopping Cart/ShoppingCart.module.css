@@ -5,16 +5,19 @@
 }
 
 .gridRight {
-    justify-items: center;
-    padding-top: 50px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
+    background-color: rgb(244, 244, 244);
+    border-radius: 10px;
+    margin-left: 50px;
+    height: fit-content;
 }
 
 .gridRight button {
-    margin-top: 50px;
+    margin-top: 20px;
+    margin-bottom: 50px;
 }
 
 .containerProducts {
