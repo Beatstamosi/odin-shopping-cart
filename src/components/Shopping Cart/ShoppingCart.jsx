@@ -6,13 +6,15 @@ function ShoppingCart() {
   const { shoppingCart, setShoppingCart } = useCart();
 
   const formatPrice = (amount) => {
-    return (Math.round((amount + Number.EPSILON) * 100) / 100).toFixed(2) + '€';
-  }
+    return (Math.round((amount + Number.EPSILON) * 100) / 100).toFixed(2) + "€";
+  };
 
-  const total = formatPrice(shoppingCart.reduce(
-    (sum, current) => sum + current.product.price * current.quantity,
-    0
-  ));
+  const total = formatPrice(
+    shoppingCart.reduce(
+      (sum, current) => sum + current.product.price * current.quantity,
+      0
+    )
+  );
 
   const increase = (product) => {
     const updatedCart = [...shoppingCart];
@@ -33,10 +35,10 @@ function ShoppingCart() {
     setShoppingCart(updatedCart);
   };
 
-  const deleteItem = (product) => {
+  const deleteItem = (product, quantity) => {
     const updatedCart = [...shoppingCart];
     const index = updatedCart.findIndex(
-      (item) => item.product.id == product.id
+      (item) => item.product.id == product.id && item.quantity == quantity
     );
     updatedCart.splice(index, 1);
     setShoppingCart(updatedCart);
@@ -59,7 +61,7 @@ function ShoppingCart() {
                 <div className={styles.containerProducts} key={item.product.id}>
                   <button
                     className={styles.deleteBtn}
-                    onClick={() => deleteItem(item.product)}
+                    onClick={() => deleteItem(item.product, item.quantity)}
                   >
                     x
                   </button>
