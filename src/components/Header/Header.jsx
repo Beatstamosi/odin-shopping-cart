@@ -25,7 +25,7 @@ function Header() {
 
 
   return (
-    <div className={styles.header}>
+    <header className={styles.header} data-testid="header">
       <Link to="/">
         <h2 aria-label="store-title">
           FAKE <span>STORE</span>
@@ -60,7 +60,7 @@ function Header() {
           <ShoppingCart size={40} />
         </Link>
       </div>
-    </div>
+    </header>
   );
 }
 

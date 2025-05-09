@@ -5,7 +5,7 @@ import { IconContext } from "react-icons";
 
 function Footer() {
     return (
-        <div className={styles.containterFooter}>
+        <footer className={styles.containterFooter} data-testid="footer">
             <div className={styles.footerTop}>
                 <div>
                     <p>About</p>
@@ -21,9 +21,9 @@ function Footer() {
                 </div>
                 <IconContext.Provider value={{ color: "black", className: "global-class-name", size: "1.5em"}}>
                     <div className={styles.footerLinks}>
-                        <a href="https://instagram.com" target="_blank"><FaInstagram /></a>
-                        <a href="https://youtube.com" target="_blank"><CiYoutube /></a>
-                        <a href="https://github.com/Beatstamosi" target="_blank"><FaGithub /></a>
+                        <a href="https://instagram.com" aria-label="instagram" target="_blank"><FaInstagram /></a>
+                        <a href="https://youtube.com" aria-label="youtube" target="_blank"><CiYoutube /></a>
+                        <a href="https://github.com/Beatstamosi" aria-label="github" target="_blank"><FaGithub /></a>
                     </div>
                 </IconContext.Provider>
             </div>
@@ -31,7 +31,7 @@ function Footer() {
                 <p>© 2025 Fake Store</p>
                 <p>341134 FakeStreet, 98423 FakeCity, FakeLand</p>
             </div>
-        </div>
+        </footer>
     )
 }
 

@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 function Home() {
   return (
-    <div className={styles.containerHome}>
+    <div className={styles.containerHome} data-testid="home">
       <h1>Welcome to Fake Store</h1>
       <button>
         <Link to="products">See All Products</Link>
