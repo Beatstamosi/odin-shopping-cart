@@ -1,14 +1,11 @@
 import { render, screen } from "@testing-library/react";
-import { Router, useParams } from "react-router-dom";
+import { MemoryRouter } from "react-router-dom";
 import { beforeEach, expect, test, vi } from "vitest";
-import { createMemoryHistory } from "history";
 import { CartContext } from "../CartContext";
 import Search from "./Search";
 import { ProductsContext } from "../productsContext";
-import userEvent from "@testing-library/user-event";
 
 describe("renders product Card correctly", () => {
-  let history;
   const shoppingCart = [];
   const setShoppingCart = vi.fn();
 
@@ -46,27 +43,24 @@ describe("renders product Card correctly", () => {
       image: "http://example3.com/",
     },
     {
-        id: 3,
-        title: "woman hair",
-        price: 2000,
-        description: "Description Test Product 4",
-        category: "Tests",
-        image: "http://example4.com/",
-      },
+      id: 3,
+      title: "woman hair",
+      price: 2000,
+      description: "Description Test Product 4",
+      category: "Tests",
+      image: "http://example4.com/",
+    },
   ];
 
   beforeEach(() => {
-    // Initialize memory history
-    history = createMemoryHistory();
-
     render(
-      <Router location={history.location} navigator={history}>
+      <MemoryRouter>
         <ProductsContext.Provider value={products}>
           <CartContext.Provider value={{ shoppingCart, setShoppingCart }}>
             <Search />
           </CartContext.Provider>
         </ProductsContext.Provider>
-      </Router>
+      </MemoryRouter>
     );
   });
 
@@ -74,11 +68,4 @@ describe("renders product Card correctly", () => {
     const container = screen.getByTestId("containerSearchProducts");
     expect(container.children.length).toBe(1);
   });
-
-//   test("back to all products link", () => {
-//     const link = screen.getByText("← Back to all Products");
-//     const user = userEvent.setup();
-
-//     await user.click(link);
-//   })
 });
