@@ -4,9 +4,7 @@ function useAddToCart() {
   const { shoppingCart, setShoppingCart } = useCart();
 
   const addToCart = (product, quantity) => {
-    const cart = [...shoppingCart];
-    cart.push({ product, quantity });
-    setShoppingCart(cart);
+    setShoppingCart([...shoppingCart, {...product, quantity}]);
   };
 
   return addToCart;
