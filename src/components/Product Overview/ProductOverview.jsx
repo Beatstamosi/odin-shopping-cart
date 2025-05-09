@@ -3,6 +3,7 @@ import styles from "./ProductOverview.module.css";
 import { useProducts } from "../productsContext";
 import useQuantity from "../useQuantity";
 import useAddToCart from "../useAddToCart";
+import BackToProducts from "../backToProducts/BackToProducts";
 
 function ProductOverview() {
   const params = useParams();
@@ -15,11 +16,7 @@ function ProductOverview() {
 
   return (
     <div data-testid="productOverview">
-      <div className={styles.backToProducts}>
-        <Link to="/products">
-          <span> ← Back to all Products</span>
-        </Link>
-      </div>
+      <BackToProducts />
       <div className={styles.containerOverview}>
         <div className={styles.imgContainer}>
           <img src={product.image} alt="" />
@@ -33,7 +30,12 @@ function ProductOverview() {
             <input type="text" value={quantity} readOnly />
             <button onClick={() => increase()}>+</button>
           </div>
-          <button className={styles.addToCart} onClick={() => addToCart(product, quantity)}>Add to Cart</button>
+          <button
+            className={styles.addToCart}
+            onClick={() => addToCart(product, quantity)}
+          >
+            Add to Cart
+          </button>
         </div>
       </div>
     </div>

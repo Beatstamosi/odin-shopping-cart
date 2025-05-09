@@ -2,6 +2,7 @@ import ProductCard from "../Product Card/ProductCard";
 import { useProducts } from "../productsContext";
 import styles from "./Search.module.css";
 import { useLocation, Link } from "react-router-dom";
+import BackToProducts from "../backToProducts/BackToProducts";
 
 function Search() {
   const products = useProducts();
@@ -18,12 +19,8 @@ function Search() {
 
   return (
     <div data-testid="search">
-      <div className={styles.backToProducts}>
-        <Link to="/products">
-          <span> ← Back to all Products</span>
-        </Link>
-      </div>
-      <div className={styles.containerProducts}>
+      <BackToProducts />
+      <div className={styles.containerProducts} data-testid="containerSearchProducts">
         {filteredProducts.map((product) => (
           <ProductCard key={product.id} product={product} />
         ))}
