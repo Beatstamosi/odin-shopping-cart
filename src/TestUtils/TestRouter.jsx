@@ -28,6 +28,7 @@ export function renderWithRouter(initialRoute = "/") {
         { path: "products/:id", element: <ProductOverview /> },
         { path: "cart", element: <ShoppingCart /> },
         { path: "search", element: <Search /> },
+        { path: "*", element: <ErrorPage />},
       ],
     },
   ];

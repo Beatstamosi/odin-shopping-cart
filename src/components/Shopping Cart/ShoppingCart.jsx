@@ -45,7 +45,7 @@ function ShoppingCart() {
   };
 
   return (
-    <>
+    <div data-testid="shoppingCart">
       <div className={styles.backToProducts}>
         <Link to="/products">
           <span> ← Back to all Products</span>
@@ -100,7 +100,7 @@ function ShoppingCart() {
         )}
         {shoppingCart.length < 1 && <p>Your Cart is empty.</p>}
       </div>
-    </>
+    </div>
   );
 }
 

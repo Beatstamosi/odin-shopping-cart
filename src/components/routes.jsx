@@ -42,6 +42,10 @@ const routes = [
       {
         path: "/search",
         element: <Search />,
+      },
+      {
+        path: "*",
+        element: <ErrorPage />,
       }
     ],
   },

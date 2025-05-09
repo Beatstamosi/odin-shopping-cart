@@ -17,7 +17,7 @@ function Search() {
     : products;
 
   return (
-    <>
+    <div data-testid="search">
       <div className={styles.backToProducts}>
         <Link to="/products">
           <span> ← Back to all Products</span>
@@ -28,7 +28,7 @@ function Search() {
           <ProductCard key={product.id} product={product} />
         ))}
       </div>
-    </>
+    </div>
   );
 }
 

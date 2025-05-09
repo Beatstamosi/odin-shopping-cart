@@ -6,7 +6,7 @@ function Products() {
   const products = useProducts();
 
   return (
-    <div className={styles.containerProducts}>
+    <div className={styles.containerProducts} data-testid="products">
       {products.map((product) => (
         <ProductCard key={product.id} product={product} />
       ))}
