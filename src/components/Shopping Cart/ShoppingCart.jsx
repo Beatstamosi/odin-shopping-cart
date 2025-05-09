@@ -85,7 +85,16 @@ function ShoppingCart() {
             <div className={styles.gridRight}>
               <p className={styles.total}>Total</p>
               <span className={styles.totalAmount}>{total}</span>
-              <button className={styles.checkoutBtn}>Checkout</button>
+              <button
+                className={styles.checkoutBtn}
+                onClick={() => {
+                  alert(
+                    "Didn't you see it is a Fake Store? Don't fall for online scammers! Never give out vulnerable information to strangers on the Internet!"
+                  );
+                }}
+              >
+                Checkout
+              </button>
             </div>
           </>
         )}
