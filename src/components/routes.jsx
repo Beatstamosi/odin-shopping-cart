@@ -4,6 +4,7 @@ import Products from "./Products/products.jsx";
 import ErrorPage from "./ErrorPage/ErrorPage.jsx";
 import ProductOverview from "./Product Overview/ProductOverview.jsx";
 import ShoppingCart from "./Shopping Cart/ShoppingCart.jsx";
+import Search from "./Search/Search.jsx";
 
 const productLoader = async () => {
     const response = await fetch("https://fakestoreapi.com/products")
@@ -37,6 +38,10 @@ const routes = [
       {
         path: "/cart",
         element: <ShoppingCart />,
+      },
+      {
+        path: "/search",
+        element: <Search />,
       }
     ],
   },

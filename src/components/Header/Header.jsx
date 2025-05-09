@@ -1,33 +1,64 @@
-import { Form, Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import styles from "./Header.module.css";
 import { ShoppingCart, Search } from "lucide-react";
 import { useCart } from "../CartContext";
+import { useEffect, useState } from "react";
 
 function Header() {
   const { shoppingCart, setShoppingCart } = useCart();
 
-  const amountInShoppingCart = shoppingCart.reduce((sum, current) => sum + current.quantity, 0);
+  const amountInShoppingCart = shoppingCart.reduce(
+    (sum, current) => sum + current.quantity,
+    0
+  );
+
+  const navigate = useNavigate();
+  const location = useLocation();
+  const searchParams = new URLSearchParams(location.search);
+  const q = searchParams.get("q");
+
+  const [searchInput, setSearchInput] = useState(q || "");
+
+  useEffect(() => {
+    setSearchInput(q || "");
+  }, [q]);
+
 
   return (
     <div className={styles.header}>
-      <Link to="/"><h2>FAKE <span>STORE</span></h2></Link>
+      <Link to="/">
+        <h2>
+          FAKE <span>STORE</span>
+        </h2>
+      </Link>
       <div className={styles.searchbar}>
         <input
           id="q"
           type="search"
-          aria-label="Search product"
+          aria-label="Search for product"
           name="q"
           placeholder="Search Product"
+          value={searchInput}
+          onChange={(e) => {
+            const newQ = e.target.value;
+            setSearchInput(newQ);
+            const isFirstSearch = q === null;
+            navigate(`/search?q=${encodeURIComponent(newQ)}`, {
+              replace: !isFirstSearch,
+            });
+          }}
         />
-        <button className={styles.searchButton}>
+        <span className={styles.searchButton}>
           <Search strokeWidth={2.75} size={30} />
-        </button>
+        </span>
       </div>
       <div className={styles.containerShoppingCart}>
-        {shoppingCart.length > 0 && 
-        <div className={styles.amount}>{amountInShoppingCart}</div>
-        }
-        <Link to="/cart"><ShoppingCart size={40} /></Link>
+        {shoppingCart.length > 0 && (
+          <div className={styles.amount}>{amountInShoppingCart}</div>
+        )}
+        <Link to="/cart">
+          <ShoppingCart size={40} />
+        </Link>
       </div>
     </div>
   );
