@@ -53,4 +53,12 @@ describe("Test Routing Paths", () => {
 
     expect(await screen.findByTestId("search")).toBeInTheDocument();
   });
+
+  test("does not render Item Added notification", () => {
+    const { ui } = renderWithRouter("/");
+    render(ui);
+
+    const notification = screen.queryByTestId("notificationItemAdded");
+    expect(notification).not.toBeInTheDocument();
+  })
 });

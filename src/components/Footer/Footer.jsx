@@ -21,9 +21,9 @@ function Footer() {
                 </div>
                 <IconContext.Provider value={{ color: "black", className: "global-class-name", size: "1.5em"}}>
                     <div className={styles.footerLinks}>
-                        <a href="https://instagram.com" aria-label="instagram" target="_blank"><FaInstagram /></a>
-                        <a href="https://youtube.com" aria-label="youtube" target="_blank"><CiYoutube /></a>
-                        <a href="https://github.com/Beatstamosi" aria-label="github" target="_blank"><FaGithub /></a>
+                        <a href="https://instagram.com/" aria-label="instagram" target="_blank"><FaInstagram /></a>
+                        <a href="https://youtube.com/" aria-label="youtube" target="_blank"><CiYoutube /></a>
+                        <a href="https://github.com/Beatstamosi/" aria-label="github" target="_blank"><FaGithub /></a>
                     </div>
                 </IconContext.Provider>
             </div>

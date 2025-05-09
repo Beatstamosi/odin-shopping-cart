@@ -54,9 +54,9 @@ function Header() {
       </div>
       <div className={styles.containerShoppingCart}>
         {shoppingCart.length > 0 && (
-          <div className={styles.amount}>{amountInShoppingCart}</div>
+          <div className={styles.amount} data-testid="cartAmount">{amountInShoppingCart}</div>
         )}
-        <Link to="/cart">
+        <Link to="/cart" data-testid="cartLink">
           <ShoppingCart size={40} />
         </Link>
       </div>

@@ -9,7 +9,7 @@ import ShoppingCart from "../components/Shopping Cart/ShoppingCart.jsx";
 import Search from "../components/Search/Search.jsx";
 
 // Reusable mock products
-const mockProducts = [
+export const mockProducts = [
   { id: 1, title: "Test Product 1", price: 10, image: "", description: "" },
   { id: 2, title: "Test Product 2", price: 20, image: "", description: "" },
 ];
