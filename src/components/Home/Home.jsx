@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 function Home() {
   return (
     <div className={styles.containerHome}>
-      <h2>Welcome to Fake Store</h2>
+      <h1>Welcome to Fake Store</h1>
       <button>
         <Link to="products">See All Products</Link>
       </button>

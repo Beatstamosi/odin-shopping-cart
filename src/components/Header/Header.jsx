@@ -27,7 +27,7 @@ function Header() {
   return (
     <div className={styles.header}>
       <Link to="/">
-        <h2>
+        <h2 aria-label="store-title">
           FAKE <span>STORE</span>
         </h2>
       </Link>
