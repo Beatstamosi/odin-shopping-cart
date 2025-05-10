@@ -1,11 +1,12 @@
 import { render, screen } from "@testing-library/react";
-import { Router, useParams } from "react-router-dom";
+import { Router, useParams, MemoryRouter } from "react-router-dom";
 import { beforeEach, expect, test, vi } from "vitest";
 import { createMemoryHistory } from "history";
 import { CartContext } from "../CartContext";
 import userEvent from "@testing-library/user-event";
 import ProductOverview from "./ProductOverview";
 import { ProductsContext } from "../productsContext";
+import { useState } from "react";
 
 describe("renders product Card correctly", () => {
   let history;
@@ -79,7 +80,7 @@ describe("renders product Card correctly", () => {
 
   test("displays product description", () => {
     expect(screen.getByText("Description Test Product")).toBeInTheDocument();
-  })
+  });
 
   test("navigates back to products", async () => {
     const link = screen.getByText("← Back to all Products");

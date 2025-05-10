@@ -21,9 +21,7 @@ function TestWrapper({ children, initialCart = [] }) {
 describe("renders shopping Cart correctly", () => {
   // run test with empty shopping Cart
   test("displays cart is empty", () => {
-    const setShoppingCart = vi.fn(
-      (newShoppingCart) => (shoppingCart = newShoppingCart)
-    );
+    const setShoppingCart = vi.fn();
     const shoppingCart = [];
 
     render(
@@ -112,9 +110,8 @@ describe("renders shopping Cart correctly", () => {
     await user.click(checkout);
 
     expect(global.alert).toHaveBeenCalled();
-  })
+  });
 });
-
 
 describe("test behaviour of quantity changes", () => {
   const product1 = {
@@ -176,30 +173,33 @@ describe("test behaviour of quantity changes", () => {
     const deleteBtn = screen.getByRole("button", { name: "x" });
 
     expect(total.textContent).toBe("100.00€");
-    
+
     await user.click(deleteBtn);
 
     expect(total).not.toBeInTheDocument();
     expect(container).not.toBeInTheDocument();
-
   });
 
   test("deletes element (product1) and updates total - multiple products", async () => {
     const user = userEvent.setup();
 
     render(
-      <TestWrapper initialCart={[{ product: product1, quantity: 1 }, { product: product2, quantity: 1 }]}>
+      <TestWrapper
+        initialCart={[
+          { product: product1, quantity: 1 },
+          { product: product2, quantity: 1 },
+        ]}
+      >
         <ShoppingCart />
       </TestWrapper>
     );
 
     const total = screen.getByTestId("totalAmount");
     const container = screen.getByTestId("container-product-0");
-    const input = within(container).getByRole("textbox");
     const deleteBtn = within(container).getByRole("button", { name: "x" });
 
     expect(total.textContent).toBe("250.00€");
-    
+
     await user.click(deleteBtn);
 
     expect(total.textContent).toBe("150.00€");
