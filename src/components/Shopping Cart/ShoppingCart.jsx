@@ -5,6 +5,8 @@ import BackToProducts from "../BackToProducts/BackToProducts.jsx";
 function ShoppingCart() {
   const { shoppingCart, setShoppingCart } = useCart();
 
+  console.log(shoppingCart);
+
   const formatPrice = (amount) => {
     return (Math.round((amount + Number.EPSILON) * 100) / 100).toFixed(2) + "€";
   };
