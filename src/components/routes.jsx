@@ -1,20 +1,19 @@
 import App from "../App.jsx";
 import Home from "./Home/Home.jsx";
-import Products from "./Products/products.jsx";
+import Products from "./Products/Products.jsx";
 import ErrorPage from "./ErrorPage/ErrorPage.jsx";
 import ProductOverview from "./Product Overview/ProductOverview.jsx";
 import ShoppingCart from "./Shopping Cart/ShoppingCart.jsx";
 import Search from "./Search/Search.jsx";
 
 const productLoader = async () => {
-    const response = await fetch("https://fakestoreapi.com/products")
-    if (!response.ok) {
-        throw new Error(`Error fetching data: ${response.status}`);
-    }
-    const result =  await response.json();
-    return result
-}
-
+  const response = await fetch("https://fakestoreapi.com/products");
+  if (!response.ok) {
+    throw new Error(`Error fetching data: ${response.status}`);
+  }
+  const result = await response.json();
+  return result;
+};
 
 const routes = [
   {
@@ -46,7 +45,7 @@ const routes = [
       {
         path: "*",
         element: <ErrorPage />,
-      }
+      },
     ],
   },
 ];

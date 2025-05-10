@@ -2,7 +2,7 @@
 import { createMemoryRouter, RouterProvider } from "react-router-dom";
 import App from "../App.jsx";
 import Home from "../components/Home/Home.jsx";
-import Products from "../components/Products/products.jsx";
+import Products from "../components/Products/Products.jsx";
 import ErrorPage from "../components/ErrorPage/ErrorPage.jsx";
 import ProductOverview from "../components/Product Overview/ProductOverview.jsx";
 import ShoppingCart from "../components/Shopping Cart/ShoppingCart.jsx";
@@ -28,7 +28,7 @@ export function renderWithRouter(initialRoute = "/") {
         { path: "products/:id", element: <ProductOverview /> },
         { path: "cart", element: <ShoppingCart /> },
         { path: "search", element: <Search /> },
-        { path: "*", element: <ErrorPage />},
+        { path: "*", element: <ErrorPage /> },
       ],
     },
   ];
