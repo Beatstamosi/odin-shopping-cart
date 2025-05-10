@@ -2,7 +2,7 @@ import ProductCard from "../Product Card/ProductCard";
 import { useProducts } from "../productsContext";
 import styles from "./Search.module.css";
 import { useLocation, Link } from "react-router-dom";
-import BackToProducts from "./BackToProducts/BackToProducts";
+import BackToProducts from "../BackToProducts/BackToProducts.jsx";
 
 function Search() {
   const products = useProducts();

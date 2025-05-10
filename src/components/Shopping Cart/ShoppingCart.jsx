@@ -1,7 +1,6 @@
 import { useCart } from "../CartContext";
 import styles from "./ShoppingCart.module.css";
-import { Link } from "react-router-dom";
-import BackToProducts from "../backToProducts/BackToProducts";
+import BackToProducts from "../BackToProducts/BackToProducts.jsx";
 
 function ShoppingCart() {
   const { shoppingCart, setShoppingCart } = useCart();
@@ -55,7 +54,11 @@ function ShoppingCart() {
               <h2>Your Cart</h2>
               <hr />
               {shoppingCart.map((item) => (
-                <div className={styles.containerProducts} key={item.product.id} data-testid={`container-product-${item.product.id}`}>
+                <div
+                  className={styles.containerProducts}
+                  key={item.product.id}
+                  data-testid={`container-product-${item.product.id}`}
+                >
                   <button
                     className={styles.deleteBtn}
                     onClick={() => deleteItem(item.product, item.quantity)}
@@ -70,7 +73,10 @@ function ShoppingCart() {
                     <p className={styles.price}>
                       {formatPrice(item.product.price * item.quantity)}
                     </p>
-                    <div className={styles.quantityHandler} data-testid={`quantity-handler-${item.product.id}`}>
+                    <div
+                      className={styles.quantityHandler}
+                      data-testid={`quantity-handler-${item.product.id}`}
+                    >
                       <button onClick={() => decrease(item.product)}>-</button>
                       <input type="text" value={item.quantity} readOnly />
                       <button onClick={() => increase(item.product)}>+</button>
@@ -81,7 +87,9 @@ function ShoppingCart() {
             </div>
             <div className={styles.gridRight}>
               <p className={styles.total}>Total</p>
-              <span className={styles.totalAmount} data-testid="totalAmount">{total}</span>
+              <span className={styles.totalAmount} data-testid="totalAmount">
+                {total}
+              </span>
               <button
                 className={styles.checkoutBtn}
                 onClick={() => {

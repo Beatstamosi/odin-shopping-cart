@@ -3,7 +3,7 @@ import styles from "./ProductOverview.module.css";
 import { useProducts } from "../productsContext";
 import useQuantity from "../useQuantity";
 import useAddToCart from "../useAddToCart";
-import BackToProducts from "../backToProducts/BackToProducts";
+import BackToProducts from "../BackToProducts/BackToProducts.jsx";
 
 function ProductOverview() {
   const params = useParams();
