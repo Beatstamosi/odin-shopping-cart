@@ -1,5 +1,5 @@
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import styles from "./Header.module.css";
+import styles from "./HeaderStyles.module.css";
 import { ShoppingCart, Search } from "lucide-react";
 import { useCart } from "../CartContext";
 import { useEffect, useState } from "react";
