@@ -2,7 +2,7 @@ import ProductCard from "../Product Card/ProductCard";
 import { useProducts } from "../productsContext";
 import styles from "./Search.module.css";
 import { useLocation, Link } from "react-router-dom";
-import BackToProducts from "../backToProducts/BackToProducts";
+import BackToProducts from "./BackToProducts/BackToProducts";
 
 function Search() {
   const products = useProducts();
@@ -20,7 +20,10 @@ function Search() {
   return (
     <div data-testid="search">
       <BackToProducts />
-      <div className={styles.containerProducts} data-testid="containerSearchProducts">
+      <div
+        className={styles.containerProducts}
+        data-testid="containerSearchProducts"
+      >
         {filteredProducts.map((product) => (
           <ProductCard key={product.id} product={product} />
         ))}
