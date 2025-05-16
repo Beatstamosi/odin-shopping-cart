@@ -5,8 +5,6 @@ import BackToProducts from "../BackToProducts/BackToProducts.jsx";
 function ShoppingCart() {
   const { shoppingCart, setShoppingCart } = useCart();
 
-  console.log(shoppingCart);
-
   const formatPrice = (amount) => {
     return (Math.round((amount + Number.EPSILON) * 100) / 100).toFixed(2) + "€";
   };
@@ -19,22 +17,26 @@ function ShoppingCart() {
   );
 
   const increase = (product) => {
-    const updatedCart = [...shoppingCart];
-    const index = updatedCart.findIndex(
-      (item) => item.product.id == product.id
+    setShoppingCart(
+      shoppingCart.map((item) =>
+        item.product.id == product.id
+          ? { product: item.product, quantity: item.quantity + 1 }
+          : item
+      )
     );
-    updatedCart[index].quantity = updatedCart[index].quantity + 1;
-    setShoppingCart(updatedCart);
   };
 
   const decrease = (product) => {
-    const updatedCart = [...shoppingCart];
-    const index = updatedCart.findIndex(
-      (item) => item.product.id == product.id
+    setShoppingCart(
+      shoppingCart.map((item) =>
+        item.product.id == product.id
+          ? {
+              product: item.product,
+              quantity: item.quantity - 1 >= 1 ? item.quantity - 1 : 1,
+            }
+          : item
+      )
     );
-    updatedCart[index].quantity =
-      updatedCart[index].quantity - 1 > 1 ? updatedCart[index].quantity - 1 : 1;
-    setShoppingCart(updatedCart);
   };
 
   const deleteItem = (product, quantity) => {
