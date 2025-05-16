@@ -1,12 +1,11 @@
 import useQuantity from "../useQuantity";
 import styles from "./ProductCard.module.css";
 import { Link } from "react-router-dom";
-import useAddToCart from "../useAddToCart";
+import useCartActions from "../useCartActions";
 
 function ProductCard({ product }) {
   const { quantity, increase, decrease } = useQuantity();
-
-  const addToCart = useAddToCart();
+  const { addToCart } = useCartActions();
 
   return (
     <div className={styles.containerProductCard}>

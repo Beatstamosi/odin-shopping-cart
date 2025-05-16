@@ -7,11 +7,13 @@ import ScrollTop from "./components/ScrollToTop.jsx";
 import { CartContext } from "./components/CartContext.js";
 import { useState, useRef, useEffect } from "react";
 import ItemAdded from "./components/Item Added Notification/ItemAdded.jsx";
+import { useReducer } from "react";
+import shoppingCartReducer from "./components/shoppingCartReducer.js";
 
 function App() {
   const products = useLoaderData();
 
-  const [shoppingCart, setShoppingCart] = useState([]);
+  const [shoppingCart, dispatch] = useReducer(shoppingCartReducer, []);
 
   // Added to Cart Notification
   const cartRef = useRef(shoppingCart);
@@ -29,7 +31,7 @@ function App() {
   }, [shoppingCart]);
 
   return (
-    <CartContext.Provider value={{ shoppingCart, setShoppingCart }}>
+    <CartContext.Provider value={{ shoppingCart, dispatch }}>
       <ProductsContext.Provider value={products}>
         <ScrollTop />
         <div className={styles.page}>

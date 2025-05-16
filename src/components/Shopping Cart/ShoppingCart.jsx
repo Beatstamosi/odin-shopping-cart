@@ -1,11 +1,11 @@
 import { useCart } from "../CartContext";
 import styles from "./ShoppingCart.module.css";
 import BackToProducts from "../BackToProducts/BackToProducts.jsx";
+import useCartActions from "../useCartActions.js";
 
 function ShoppingCart() {
-  const { shoppingCart, setShoppingCart } = useCart();
-
-  console.log(shoppingCart);
+  const { shoppingCart } = useCart();
+  const { increaseInCart, decreaseInCart, deleteItem } = useCartActions();
 
   const formatPrice = (amount) => {
     return (Math.round((amount + Number.EPSILON) * 100) / 100).toFixed(2) + "€";
@@ -17,34 +17,6 @@ function ShoppingCart() {
       0
     )
   );
-
-  const increase = (product) => {
-    const updatedCart = [...shoppingCart];
-    const index = updatedCart.findIndex(
-      (item) => item.product.id == product.id
-    );
-    updatedCart[index].quantity = updatedCart[index].quantity + 1;
-    setShoppingCart(updatedCart);
-  };
-
-  const decrease = (product) => {
-    const updatedCart = [...shoppingCart];
-    const index = updatedCart.findIndex(
-      (item) => item.product.id == product.id
-    );
-    updatedCart[index].quantity =
-      updatedCart[index].quantity - 1 > 1 ? updatedCart[index].quantity - 1 : 1;
-    setShoppingCart(updatedCart);
-  };
-
-  const deleteItem = (product, quantity) => {
-    const updatedCart = [...shoppingCart];
-    const index = updatedCart.findIndex(
-      (item) => item.product.id == product.id && item.quantity == quantity
-    );
-    updatedCart.splice(index, 1);
-    setShoppingCart(updatedCart);
-  };
 
   return (
     <div data-testid="shoppingCart">
@@ -79,9 +51,13 @@ function ShoppingCart() {
                       className={styles.quantityHandler}
                       data-testid={`quantity-handler-${item.product.id}`}
                     >
-                      <button onClick={() => decrease(item.product)}>-</button>
+                      <button onClick={() => decreaseInCart(item.product)}>
+                        -
+                      </button>
                       <input type="text" value={item.quantity} readOnly />
-                      <button onClick={() => increase(item.product)}>+</button>
+                      <button onClick={() => increaseInCart(item.product)}>
+                        +
+                      </button>
                     </div>
                   </div>
                 </div>

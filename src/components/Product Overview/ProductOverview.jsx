@@ -2,8 +2,8 @@ import { useParams, Link } from "react-router-dom";
 import styles from "./ProductOverview.module.css";
 import { useProducts } from "../productsContext";
 import useQuantity from "../useQuantity";
-import useAddToCart from "../useAddToCart";
 import BackToProducts from "../BackToProducts/BackToProducts.jsx";
+import useCartActions from "../useCartActions.js";
 
 function ProductOverview() {
   const params = useParams();
@@ -11,8 +11,7 @@ function ProductOverview() {
   const product = products.find((product) => params.id == product.id);
 
   const { quantity, increase, decrease } = useQuantity();
-
-  const addToCart = useAddToCart();
+  const { addToCart } = useCartActions();
 
   return (
     <div data-testid="productOverview">

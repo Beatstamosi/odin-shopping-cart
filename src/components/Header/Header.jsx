@@ -5,7 +5,7 @@ import { useCart } from "../CartContext";
 import { useEffect, useState } from "react";
 
 function Header() {
-  const { shoppingCart, setShoppingCart } = useCart();
+  const { shoppingCart } = useCart();
 
   const amountInShoppingCart = shoppingCart.reduce(
     (sum, current) => sum + current.quantity,
